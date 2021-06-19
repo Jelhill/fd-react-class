@@ -4,14 +4,14 @@ import react, { useState, useEffect } from "react"
 
 function Signup() {
 
-    useEffect(() =>{
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => response.json())
-        .then((data) => setUsers(data))
-        .catch((error) => console.log(error))
-    }, [])
+    // useEffect(() =>{
+    //     fetch("https://jsonplaceholder.typicode.com/users")
+    //     .then((response) => response.json())
+    //     .then((data) => setUsers(data))
+    //     .catch((error) => console.log(error))
+    // }, [])
 
-    const [users, setUsers] = useState([])
+    // const [users, setUsers] = useState([])
     const [ firstname, setFirstname ] = useState('')
     const [ lastname, setLastname ] = useState('')
     const [ email, setEmail ] = useState('')

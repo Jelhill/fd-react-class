@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 
 function Login(props) {
-    
+
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
@@ -15,13 +16,14 @@ function Login(props) {
             if(email !== user.email || password !== user.password) {
                 return alert("email/password is incorrect")
             }
-            props.history.push("/dashboard")
+            props.history.push(`/dashboard/${user.firstname}`)
         }
-    }
+    } 
 
 
     return (
         <div>
+            <h1>{props.person}</h1>
             <div>
                 <label>Email</label>
                 <input type="email" onChange={(e) => setEmail(e.target.value)}></input>
@@ -38,4 +40,10 @@ function Login(props) {
     )
 }
 
-export default Login
+
+const mapStateToProps = (state) => {
+    return {
+        person: state.userReducer.name
+    }
+}
+export default connect(mapStateToProps)(Login)

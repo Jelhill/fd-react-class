@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom"
 import Signup from './components/Signup';
 import Login from './components/Login';
 import DashBoard from './components/DashBoard';
+import UserSignup from './components/UserSignup';
 
 function App() {
     return (
@@ -13,7 +14,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/signup" component={Signup}/>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={DashBoard} />
+          <Route exact path="/userSignup" component={UserSignup} />
+          <Route exact path="/dashboard/:names" component={DashBoard} />
        </Switch>
      </div>
 
