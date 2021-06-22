@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 import react, { useState, useEffect } from "react"
+import { connect } from "react-redux"
 
-
-function Signup() {
+function Signup(props) {
 
     // useEffect(() =>{
     //     fetch("https://jsonplaceholder.typicode.com/users")
@@ -29,6 +29,7 @@ function Signup() {
 
     return (
         <div>
+            <h2>{props.name}</h2>
             <div>
                 <label>Firstname</label>
                 <input type="text" onChange={(e) => setFirstname(e.target.value)}></input>
@@ -52,4 +53,11 @@ function Signup() {
     )
 }
 
-export default Signup
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        name: state.userReducer.name,
+    }
+}
+
+export default connect(mapStateToProps)(Signup)
