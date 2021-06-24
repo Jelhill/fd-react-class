@@ -8,7 +8,7 @@ const initialState = {
 
 
 function userReducer(state = initialState, action){
-    const newState = state
+    const newState = { ...state }
 
     if(action.type === "UPDATE_FIRSTNAME") {
         console.log(action.value)
